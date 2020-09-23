@@ -1532,6 +1532,16 @@ Resources:
             - 'ecr:ListImages'
             - 'ecr:ListTagsForResource'
             Resource: '*'
+      - PolicyName: AllowGetSensitiveParams
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+          - Effect: Allow
+            Action:
+            - 'ssm:GetParametersByPath'
+            - 'ssm:GetParameters'
+            - 'ssm:GetParameter'
+            Resource: 'arn:aws:ssm:us-east-1:904550864115:parameter/common/sensitive/*'
   AgentIAMPolicySSHAccess:
     Type: 'AWS::IAM::Policy'
     Condition: HasIAMUserSSHAccess
