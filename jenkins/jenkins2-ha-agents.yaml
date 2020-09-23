@@ -1541,7 +1541,7 @@ Resources:
             - 'ssm:GetParametersByPath'
             - 'ssm:GetParameters'
             - 'ssm:GetParameter'
-            Resource: 'arn:aws:ssm:us-east-1:904550864115:parameter/common/sensitive/*'
+            Resource: 'arn:aws:ssm:us-east-1:${AWS::AccountId}:parameter/common/sensitive/*'
   AgentIAMPolicySSHAccess:
     Type: 'AWS::IAM::Policy'
     Condition: HasIAMUserSSHAccess
